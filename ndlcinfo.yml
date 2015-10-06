@@ -1,0 +1,5 @@
+- name: ndlcinfo.yml
+  sudo: true
+
+  roles:
+    - { role: ndlc.info,		tags: ["common"]}
