@@ -1,0 +1,6 @@
+- name: common.yml
+  hosts: all
+  sudo: true
+
+  roles:
+    - { role: common,           tags: ["common"]}
