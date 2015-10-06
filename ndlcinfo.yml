@@ -1,5 +1,6 @@
 - name: ndlcinfo.yml
   sudo: true
+  hosts: development
 
   roles:
-    - { role: ndlc.info,		tags: ["common"]}
+    - { role: ndlc.info,		tags: ["ndlc.info"]}
