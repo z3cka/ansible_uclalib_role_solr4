@@ -1,0 +1,6 @@
+- name: iiif_image.yml
+  sudo: true
+  hosts: development
+
+  roles:
+    - { role: iiif_image,		tags: ["iiif_image"]}

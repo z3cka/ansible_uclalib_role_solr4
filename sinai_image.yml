@@ -1,6 +1,0 @@
-- name: sinai_image.yml
-  sudo: true
-  hosts: development
-
-  roles:
-    - { role: sinai_image,		tags: ["sinai_image"]}
