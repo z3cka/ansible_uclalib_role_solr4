@@ -1,0 +1,6 @@
+- name: iiif_stage.yml
+  sudo: true
+  hosts: development
+
+  roles:
+    - { role: iiif_stage, tags: ["iiif_stage"] }
