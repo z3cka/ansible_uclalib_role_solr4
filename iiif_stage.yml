@@ -1,6 +1,7 @@
 - name: iiif_stage.yml
-  sudo: true
   hosts: development
+  become: yes
+  become_method: sudo
 
   roles:
     - { role: iiif_stage, tags: ["iiif_stage"] }
