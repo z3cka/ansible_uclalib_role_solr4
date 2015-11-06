@@ -1,0 +1,7 @@
+- name: sinai_scholars_stage.yml
+  hosts: development
+  become: yes
+  become_method: sudo
+
+  roles:
+    - { role: sinai_scholars_stage, tags: ["sinai_scholars_stage"] }

@@ -1,0 +1,7 @@
+- name: iiif_images_stage.yml
+  hosts: development
+  become: yes
+  become_method: sudo
+
+  roles:
+    - { role: iiif_images_stage, tags: ["iiif_images_stage"] }

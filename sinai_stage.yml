@@ -1,6 +1,0 @@
-- name: sinai_stage.yml
-  sudo: true
-  hosts: development
-
-  roles:
-    - { role: sinai_stage, tags: ["sinai_stage"] }

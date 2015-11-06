@@ -1,6 +1,0 @@
-- name: sinai_scholars.yml
-  sudo: true
-  hosts: development
-
-  roles:
-    - { role: sinai_scholars, tags: ["sinai_scholars"] }
