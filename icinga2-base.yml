@@ -2,7 +2,6 @@
   hosts: development-icinga2
   become: yes
   become_method: sudo
-  sudo: true
 
   roles:
     - { role: icinga2-base,           tags: ["icinga2-base"]}
