@@ -4,3 +4,4 @@
 
   roles:
     - { role: uclalib_role_java,		tags: ["java"]}
+    - { role: uclalib_role_tomcat,  tags: ["tomcat"]}
