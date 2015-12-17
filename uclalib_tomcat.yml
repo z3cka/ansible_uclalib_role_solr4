@@ -1,0 +1,6 @@
+- name: uclalib_tomcat.yml
+  sudo: true
+  hosts: test
+
+  roles:
+    - { role: uclalib_role_java,		tags: ["java"]}
