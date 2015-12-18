@@ -1,7 +1,8 @@
+---
 - name: uclalib_tomcat.yml
   sudo: true
   hosts: test
 
   roles:
-    - { role: uclalib_role_java,		tags: ["java"]}
-    - { role: uclalib_role_tomcat,  tags: ["tomcat"]}
+    - { role: uclalib_role_java }
+    - { role: uclalib_role_tomcat }
