@@ -2,6 +2,17 @@
 - name: uclalib_tomcat.yml
   sudo: true
   hosts: test
+  # Define the intended tomcat applicaitons in the vars section below
+  vars:
+    tomcat_applications:
+      - app_name: app1
+        shut_port: 8006
+        conn_port: 8081
+        rproxy_path: path1
+      - app_name: app2
+        shut_port: 8007
+        conn_port: 8082
+        rproxy_path: path2
 
   roles:
     - { role: uclalib_role_java }
