@@ -3,12 +3,15 @@
   sudo: true
   hosts: test
   # Define the intended solr applicaitons in the vars section below
+  # Optionally define the solr instance type and master host fqdn
   vars:
     tomcat_applications:
       - app_name: solr
         shut_port: 8008
         conn_port: 8083
         rproxy_path: solr
+#    solr_instance_type: 0
+#    solr_master_host: solr-master.library.ucla.edu
 
   roles:
     - { role: uclalib_role_java }
