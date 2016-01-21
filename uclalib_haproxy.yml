@@ -1,0 +1,22 @@
+---
+
+- name: uclalib_haproxy.yml
+  sudo: true
+  hosts: test
+  # Define the intended haproxy config parameters in the vars section below
+  vars:
+    frontend:
+      - ident: 'lb_solr'
+        acl: 'http_methods method POST DELETE PUT'
+        acl_cond: 'use_backend master_solr if http_methods'
+        default_be: 'slave_solr'
+    backends:
+      - ident: master_solr
+        http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
+        hosts: [ t-w-solr-01 ]
+      - ident: slave_solr
+        http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
+        hosts: [ t-w-solr-02, t-w-solr-03 ]
+
+  roles:
+    - { role: uclalib_role_haproxy }
