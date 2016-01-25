@@ -6,10 +6,10 @@
   # Define the intended haproxy config parameters in the vars section below
   vars:
     frontend:
-      - ident: 'lb_solr'
-        acl: 'http_methods method POST DELETE PUT'
-        acl_cond: 'use_backend master_solr if http_methods'
-        default_be: 'slave_solr'
+      ident: 'lb_solr'
+      acl: 'http_methods method POST DELETE PUT'
+      acl_cond: 'use_backend master_solr if http_methods'
+      default_be: 'slave_solr'
     backends:
       - ident: master_solr
         http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
