@@ -16,7 +16,7 @@
         hosts: [ t-w-solr-01 ]
       - ident: slave_solr
         http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
-        hosts: [ t-w-solr-02, t-w-solr-03 ]
+        hosts: [ t-w-solr-02 ]
 
   roles:
     - { role: uclalib_role_haproxy }
