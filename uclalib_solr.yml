@@ -1,17 +1,17 @@
 ---
 - name: uclalib_solr.yml
   sudo: true
-  hosts: test
+#  hosts: test
   # Define the intended solr applicaitons in the vars section below
   # Optionally define the solr instance type and master host fqdn
   vars:
     tomcat_applications:
       - app_name: solr
-        shut_port: 8008
-        conn_port: 8083
+        shut_port: 8006
+        conn_port: 8081
         rproxy_path: solr
-    solr_cores: [ core1, core2, core3 ]
-#    solr_instance_type: 0
+    solr_cores: [ drupal_site_4, livingstone, oralhistory, drupal_site_5, drupal_site_5_dev, drupal_site_4_dev, www-test, stgall, www-stage, www, sheetmusic, jiiify, sinai ]
+    solr_instance_type: 1
 #    solr_master_host: solr-master.library.ucla.edu
 
   roles:
