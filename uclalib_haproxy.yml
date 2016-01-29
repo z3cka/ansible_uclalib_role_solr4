@@ -2,7 +2,7 @@
 
 - name: uclalib_haproxy.yml
   sudo: true
-  hosts: test
+  hosts: solr_lb
   # Define the intended haproxy config parameters in the vars section below
   vars:
     frontend:
@@ -13,10 +13,10 @@
     backends:
       - ident: master_solr
         http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
-        hosts: [ t-w-solr-01 ]
+        hosts: [ t-w-solrmaster01 ]
       - ident: slave_solr
         http_check: 'HEAD /solr/admin/ping HTTP/1.0\r\n'
-        hosts: [ t-w-solr-02 ]
+        hosts: [ t-w-solrslave01, t-w-solrslave02 ]
 
   roles:
     - { role: uclalib_role_haproxy }
