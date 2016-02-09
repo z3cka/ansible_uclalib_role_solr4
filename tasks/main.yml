@@ -1,0 +1,54 @@
+---
+
+- name: Determine if this is a new install of Solr
+  stat: path={{ solr_home }}
+  register: solr_path
+
+- name: Download Solr
+  get_url: url={{ solr_url }} dest=/opt/solr-{{ solr_version }}.tgz
+  when: solr_path.stat.exists == False
+
+- name: Unpack Solr
+  unarchive: src=/opt/solr-{{ solr_version }}.tgz dest=/opt copy=no
+  when: solr_path.stat.exists == False
+
+- name: Put in place the solr.war file
+  command: cp /opt/solr-{{ solr_version }}/dist/solr-{{ solr_version }}.war {{ solr_base }}/webapps/solr.war creates={{ solr_base }}/webapps/solr.war
+
+- name: Set correct ownership of the solr.war file
+  file: path={{ solr_base }}/webapps/solr.war owner=solr group=solr state=file
+
+- name: Create the solr_home path and subdirs from the example provided in the Solr download
+  command: cp -r /opt/solr-{{ solr_version }}/example/solr {{ solr_home }} creates={{ solr_home }}
+
+- name: Set correct ownership of the solr_home directory
+  file: path={{ solr_home }} owner=solr group=solr recurse=yes state=directory
+
+- name: Put in place the Solr XML file defining the number of cores
+  template: src=solr_xml.j2 dest={{ solr_home }}/solr.xml owner=solr group=solr backup=yes
+
+- name: Create the Solr core directory paths
+  command: cp -r /opt/solr-{{ solr_version }}/example/solr/collection1 {{ solr_home }}/{{ item.ident }} creates={{ solr_home }}/{{ item.ident }}
+  with_items: "{{ solr_cores }}"
+
+- name: Put in place any application-specifc solr core configuration files
+  copy: src={{ item.type }}_solr-conf/ dest={{ solr_home }}/{{ item.ident }}/conf
+  with_items: "{{ solr_cores }}"
+  when: item.type != "default"
+
+- name: Put in place customized solrconfig.xml file for each core
+  template: src=solrconfig_{{ item.type }}.j2 dest={{ solr_home }}/{{ item.ident }}/conf/solrconfig.xml
+  with_items: "{{ solr_cores }}"
+
+- name: Set correct ownership of the solr cores directories
+  file: path={{ solr_home }}/{{ item.ident }} owner=solr group=solr recurse=yes state=directory
+  with_items: "{{ solr_cores }}"
+
+- name: Put in place the Solr Environment variables file
+  template: src=solr_env.j2 dest=/etc/sysconfig/solr owner=root group=root
+
+- name: Clean up Solr download archive file
+  file: path=/opt/solr-{{ solr_version }}.tgz state=absent
+
+- name: Clean up Solr unarchived directory
+  file: path=/opt/solr-{{ solr_version }} state=absent

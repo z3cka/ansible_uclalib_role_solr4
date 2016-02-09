@@ -1,0 +1,30 @@
+---
+
+# Define the version of Solr to use
+solr_version: 4.2.0
+
+# Define the URL to obtain Solr
+solr_url: http://archive.apache.org/dist/lucene/solr/{{ solr_version }}/solr-{{ solr_version }}.tgz
+
+# Define location of Solr Tomcat installation directory
+solr_base: /usr/local/solr
+
+# Define location of Solr Index home directory
+solr_home: "{{ solr_base }}/solr"
+
+# Define the cores to be included in the Solr installation
+# Define the core identifier and solrconfig type
+# For type: default to use standard solrconfig; drupal to use drupal specifc solrconfig
+solr_cores:
+  - ident: core1
+    type: 'drupal'
+  - ident: core2
+    type: 'default'
+  - ident: core3
+    type: 'default'
+
+# Define the state of this solr instance (0 = standalone ; 1 = master ; 2 = slave)
+solr_instance_type: 0
+
+# Define the hostname of the solr master (only necessary for a master/slave config)
+solr_master_host: solr-master.library.ucla.edu
