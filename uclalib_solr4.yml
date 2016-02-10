@@ -1,5 +1,5 @@
 ---
-- name: uclalib_solr.yml
+- name: uclalib_solr4.yml
   sudo: true
   hosts: solr_slave
   # Define the intended solr applicaitons in the vars section below
