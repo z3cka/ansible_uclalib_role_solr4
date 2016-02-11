@@ -46,4 +46,4 @@
     - { role: uclalib_role_java }
     - { role: uclalib_role_apache }
     - { role: uclalib_role_tomcat }
-    - { role: uclalib_role_solr }
+    - { role: uclalib_role_solr4 }
