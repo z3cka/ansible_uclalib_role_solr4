@@ -1,7 +1,7 @@
 ---
 - name: uclalib_solr4.yml
   sudo: true
-  hosts: solr_slave
+  hosts: solr_master
   # Define the intended solr applicaitons in the vars section below
   # Optionally define the solr instance type and master host fqdn
   vars:
@@ -23,6 +23,8 @@
         type: 'default'
       - ident: drupal_site_4_dev
         type: 'default'
+      - ident: islandora
+        type: 'default'
       - ident: www-test
         type: 'drupal'
       - ident: stgall
@@ -37,8 +39,8 @@
         type: 'default'
       - ident: sinai
         type: default
-    solr_instance_type: 2
-    solr_master_host: t-w-solrmaster01.library.ucla.edu
+    solr_instance_type: 1
+#    solr_master_host: t-w-solrmaster01.library.ucla.edu
 
   roles:
     - { role: uclalib_role_java }
