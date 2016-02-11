@@ -46,9 +46,3 @@
 
 - name: Put in place the Solr Environment variables file
   template: src=solr_env.j2 dest=/etc/sysconfig/solr owner=root group=root
-
-- name: Clean up Solr download archive file
-  file: path=/opt/solr-{{ solr_version }}.tgz state=absent
-
-- name: Clean up Solr unarchived directory
-  file: path=/opt/solr-{{ solr_version }} state=absent
