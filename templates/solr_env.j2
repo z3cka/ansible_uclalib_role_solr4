@@ -7,7 +7,7 @@ TOMCAT_USER=solr
 export JAVA_HOME=/usr/lib/jvm/java
 
 # Java options specific to the application running within Tomcat
-export JAVA_OPTS="$JAVA_OPTS -Dsolr.solr.home={{ solr_home }} -Djava.awt.headless=true -Xms1024m -Xmx1024m -XX:MaxPermSize=512m"
+export JAVA_OPTS="$JAVA_OPTS -Dsolr.solr.home={{ solr_home }} -Djava.awt.headless=true -Xms{{ solr_xms }} -Xmx{{ solr_xmx }} -XX:MaxPermSize=512m"
 
 # Path to the common Tomcat binaries and libraries shared by all Tomcat instances
 export CATALINA_HOME=/usr/local/tomcat7

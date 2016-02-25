@@ -12,6 +12,12 @@ solr_base: /usr/local/solr
 # Define location of Solr Index home directory
 solr_home: "{{ solr_base }}/solr"
 
+# Define solr tomcat container min heap memory (e.g. 1024m, 2048m, 4096m, etc.)
+solr_xms: 1024m
+
+# Define solr tomcat container max heap memory (e.g. 1024m, 2048m, 4096m, etc.)
+solr_xmx: 1024m
+
 # Define the cores to be included in the Solr installation
 # Define the core identifier and solrconfig type
 # For type: default to use standard solrconfig; drupal to use drupal specifc solrconfig
