@@ -10,6 +10,8 @@
         shut_port: 8006
         conn_port: 8081
         rproxy_path: solr
+    solr_xms: 4096m
+    solr_xmx: 4096m
     solr_cores:
       - ident: drupal_site_4
         type: 'drupal'
