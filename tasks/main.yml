@@ -12,6 +12,11 @@
   unarchive: src=/opt/solr-{{ solr_version }}.tgz dest=/opt copy=no
   when: solr_path.stat.exists == False
 
+- name: Create the xml_content directory in /opt
+  file: path=/opt/xml_content/{{ item.type }}/mods owner=solr group=solr state=directory
+  with_items: "{{ solr_cores }}"
+  when: item.type != "default"
+
 - name: Put in place the solr.war file
   command: cp /opt/solr-{{ solr_version }}/dist/solr-{{ solr_version }}.war {{ solr_base }}/webapps/solr.war creates={{ solr_base }}/webapps/solr.war
 
@@ -20,6 +25,12 @@
 
 - name: Create the solr_home path and subdirs from the example provided in the Solr download
   command: cp -r /opt/solr-{{ solr_version }}/example/solr {{ solr_home }} creates={{ solr_home }}
+
+- name: Create the dist directory for solr library jar files
+  file: path={{ solr_home }}/dist owner=solr group=solr state=directory
+
+- name: Put in place the library jar files from the dist directory
+  command: cp -r /opt/solr-{{ solr_version }}/dist {{ solr_home }}/dist creates={{ solr_home }}/dist
 
 - name: Set correct ownership of the solr_home directory
   file: path={{ solr_home }} owner=solr group=solr recurse=yes state=directory
