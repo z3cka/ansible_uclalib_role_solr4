@@ -14,7 +14,7 @@
     solr_xmx: 4096m
     solr_cores:
       - ident: drupal_site_4
-        type: 'drupal'
+        type: 'default'
       - ident: livingstone
         type: 'default'
       - ident: oralhistory
@@ -36,7 +36,7 @@
       - ident: www
         type: 'drupal'
       - ident: sheetmusic
-        type: 'default'
+        type: 'sheetmusic'
       - ident: jiiify
         type: 'default'
       - ident: sinai
