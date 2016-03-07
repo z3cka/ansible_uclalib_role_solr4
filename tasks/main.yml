@@ -13,9 +13,9 @@
   when: solr_path.stat.exists == False
 
 - name: Create the xml_content directory in /opt
-  file: path=/opt/xml_content/{{ item.type }}/mods owner=solr group=solr state=directory
+  file: path=/opt/xml_content/{{ item.ident }}/mods owner=solr group=solr state=directory
   with_items: "{{ solr_cores }}"
-  when: item.type != "default"
+  when: item.type in use_xml_content_dir
 
 - name: Put in place the solr.war file
   command: cp /opt/solr-{{ solr_version }}/dist/solr-{{ solr_version }}.war {{ solr_base }}/webapps/solr.war creates={{ solr_base }}/webapps/solr.war

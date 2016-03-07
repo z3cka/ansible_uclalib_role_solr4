@@ -34,3 +34,7 @@ solr_instance_type: 0
 
 # Define the hostname of the solr master (only necessary for a master/slave config)
 solr_master_host: solr-master.library.ucla.edu
+
+# List of solr cores that use the /opt/xml_content directory
+use_xml_content_dir:
+  - sheetmusic
