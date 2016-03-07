@@ -26,11 +26,8 @@
 - name: Create the solr_home path and subdirs from the example provided in the Solr download
   command: cp -r /opt/solr-{{ solr_version }}/example/solr {{ solr_home }} creates={{ solr_home }}
 
-- name: Create the dist directory for solr library jar files
-  file: path={{ solr_home }}/dist owner=solr group=solr state=directory
-
 - name: Put in place the library jar files from the dist directory
-  command: cp -r /opt/solr-{{ solr_version }}/dist {{ solr_home }}/dist creates={{ solr_home }}/dist
+  command: cp -r /opt/solr-{{ solr_version }}/dist {{ solr_home }} creates={{ solr_home }}/dist
 
 - name: Set correct ownership of the solr_home directory
   file: path={{ solr_home }} owner=solr group=solr recurse=yes state=directory
