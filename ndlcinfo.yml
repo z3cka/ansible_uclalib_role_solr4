@@ -3,4 +3,4 @@
   hosts: development
 
   roles:
-    - { role: ndlc.info,		tags: ["ndlc.info"]}
+    - { role: uclalib_role_ndlcinfo,		tags: ["ndlc.info"]}
