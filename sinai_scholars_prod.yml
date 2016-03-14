@@ -1,7 +1,0 @@
-- name: sinai_scholars_prod.yml
-  hosts: development
-  become: yes
-  become_method: sudo
-
-  roles:
-    - { role: sinai_scholars_prod, tags: ["sinai_scholars_prod"] }
