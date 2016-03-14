@@ -1,0 +1,7 @@
+- name: iiif_images.yml
+  hosts: development
+  become: yes
+  become_method: sudo
+
+  roles:
+    - { role: uclalib_role_iiifimages, tags: ["uclalib_role_iiifimages"] }
