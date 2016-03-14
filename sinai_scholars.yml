@@ -1,0 +1,7 @@
+- name: sinai_scholars.yml
+  hosts: development
+  become: yes
+  become_method: sudo
+
+  roles:
+    - { role: uclalib_role_sinaischolars, tags: ["uclalib_role_sinaischolars"] }
