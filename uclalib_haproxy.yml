@@ -5,11 +5,16 @@
   hosts: solr_lb
   # Define the intended haproxy config parameters in the vars section below
   vars:
-    frontend:
-      ident: 'lb_solr'
-      acl: 'http_methods method POST DELETE PUT'
-      acl_cond: 'use_backend master_solr if http_methods'
-      default_be: 'slave_solr'
+    frontend_ident: 'lb_solr'
+    frontend_acls:
+      - acl: 'network_allowed src 164.67.0.0/16'
+      - acl: 'restricted_page path_beg /solr/admin'
+      - acl: 'restricted_page path_beg /solr/update'
+      - acl: 'http_methods method POST DELETE PUT'
+    frontend_aclconds:
+      - aclcond: 'block if restricted_page !network_allowed'
+      - aclcond: 'use_backend master_solr if http_methods'
+    frontend_defaultbe: 'slave_solr'
     backends:
       - ident: master_solr
         http_check: 'HEAD /solr/www/admin/ping HTTP/1.0\r\n'
