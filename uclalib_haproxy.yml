@@ -7,12 +7,14 @@
   vars:
     frontend_ident: 'lb_solr'
     frontend_acls:
-      - acl: 'network_allowed src 164.67.0.0/16'
-      - acl: 'restricted_page path_beg /solr/admin'
-      - acl: 'restricted_page path_beg /solr/update'
+      - acl: 'query_network_allowed src 0.0.0.0/0'
+      - acl: 'update_network_allowed src 164.67.0.0/16'
+      - acl: 'allow_query_path path_dir /select'
+      - acl: 'restricted_path path_beg /solr'
       - acl: 'http_methods method POST DELETE PUT'
     frontend_aclconds:
-      - aclcond: 'block if restricted_page !network_allowed'
+      - aclcond: 'http-request allow if allow_query_path query_network_allowed'
+      - aclcond: 'http-request deny if restricted_path !update_network_allowed'
       - aclcond: 'use_backend master_solr if http_methods'
     frontend_defaultbe: 'slave_solr'
     backends:
