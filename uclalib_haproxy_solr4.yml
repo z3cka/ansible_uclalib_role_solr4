@@ -1,6 +1,6 @@
 ---
 
-- name: uclalib_haproxy.yml
+- name: uclalib_haproxy_solr4.yml
   sudo: true
   hosts: solr_lb
   # Define the intended haproxy config parameters in the vars section below
