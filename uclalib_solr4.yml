@@ -18,7 +18,7 @@
       - ident: livingstone
         type: 'default'
       - ident: oralhistory
-        type: 'default'
+        type: 'oralhistory'
       - ident: drupal_site_5
         type: 'default'
       - ident: drupal_site_5_dev
