@@ -7,10 +7,10 @@
 		<entity name="audioItem" dataSource="db" query="select * from project_items where objectid_fk = 239 and statusid_fk in (2,10)">
 			<field name="id" column="ITEM_ARK"/>
 			<field name="title" column="NODE_TITLE"/>
-			<entity name="parent" query="select * from project_items where divid_pk='${audioItem.PARENT_DIVID}'">
+			<entity name="parent" dataSource="db" query="select * from project_items where divid_pk='${audioItem.PARENT_DIVID}'">
 				<field name="parentTitle" column="NODE_TITLE"/>
 			</entity>
-			<entity name="audioTextTranscript" transformer="ClobTransformer" query="select * from content_files where divid_fk='${audioItem.DIVID_PK}' and file_groupid_fk = 317 and file_location = 'database'">
+			<entity name="audioTextTranscript" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${audioItem.DIVID_PK}' and file_groupid_fk = 317 and file_location = 'database'">
 				<field name="TEXTTRANSCRIPT" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTTRANSCRIPT" column="FILEID_PK" />
 			</entity>
@@ -28,27 +28,27 @@
 				-->
 				<field name="fileIdPDF" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextTranscript" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 317 and file_location = 'database'">
+			<entity name="interviewTextTranscript" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 317 and file_location = 'database'">
 				<field name="TEXTTRANSCRIPT" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTTRANSCRIPT" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextBiography" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 550 and file_location = 'database'">
+			<entity name="interviewTextBiography" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 550 and file_location = 'database'">
 				<field name="TEXTBIOGRAPHY" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTBIOGRAPHY" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextInterviewHistory" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 551 and file_location = 'database'">
+			<entity name="interviewTextInterviewHistory" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 551 and file_location = 'database'">
 				<field name="TEXTINTERVIEWHISTORY" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTINTERVIEWHISTORY" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextAppendix" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 552 and file_location = 'database'">
+			<entity name="interviewTextAppendix" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 552 and file_location = 'database'">
 				<field name="TEXTAPPENDIX" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTAPPENDIX" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextIntroduction" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 549 and file_location = 'database'">
+			<entity name="interviewTextIntroduction" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 549 and file_location = 'database'">
 				<field name="TEXTINTRODUCTION" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTINTRODUCTION" column="FILEID_PK" />
 			</entity>
-			<entity name="interviewTextIndex" transformer="ClobTransformer" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 561 and file_location = 'database'">
+			<entity name="interviewTextIndex" transformer="ClobTransformer" dataSource="db" query="select * from content_files where divid_fk='${interviewItem.DIVID_PK}' and file_groupid_fk = 561 and file_location = 'database'">
 				<field name="TEXTINDEX" column="CLOB_TEXT" clob="true"/>
 				<field name="fileIdTEXTINDEX" column="FILEID_PK" />
 			</entity>
