@@ -31,3 +31,4 @@
 
   roles:
     - { role: uclalib_role_haproxy }
+    - { role: uclalib_role_iptables }
