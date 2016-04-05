@@ -5,6 +5,10 @@
   # Define the intended solr applicaitons in the vars section below
   # Optionally define the solr instance type and master host fqdn
   vars:
+    iptables_allowed_input_rules:
+      - src_ip: 164.67.0.0/16
+        dest_port: 80
+        protocol: tcp
     tomcat_applications:
       - app_name: solr
         shut_port: 8006
@@ -49,3 +53,4 @@
     - { role: uclalib_role_apache }
     - { role: uclalib_role_tomcat }
     - { role: uclalib_role_solr4 }
+    - { role: uclalib_role_iptables }
