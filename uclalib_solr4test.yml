@@ -1,5 +1,5 @@
 ---
-- name: uclalib_solr4.yml
+- name: uclalib_solr4test.yml
   sudo: true
   hosts: solr_master
   # Define the intended solr applicaitons in the vars section below
@@ -17,35 +17,15 @@
     solr_xms: 4096m
     solr_xmx: 4096m
     solr_cores:
-      - ident: drupal_site_4
-        type: 'default'
-      - ident: livingstone
-        type: 'default'
       - ident: oralhistory
         type: 'oralhistory'
-      - ident: drupal_site_5
-        type: 'default'
-      - ident: drupal_site_5_dev
-        type: 'default'
-      - ident: drupal_site_4_dev
-        type: 'default'
-      - ident: islandora
-        type: 'default'
-      - ident: www-test
-        type: 'drupal'
-      - ident: stgall
-        type: 'default'
-      - ident: www-stage
-        type: 'drupal'
-      - ident: www
-        type: 'drupal'
       - ident: sheetmusic
         type: 'sheetmusic'
-      - ident: jiiify
-        type: 'default'
-      - ident: sinai
-        type: default
+      - ident: www-test
+        type: 'drupal'
+# Use 1 for master and 2 for slave
     solr_instance_type: 1
+# Uncomment variable below when solr_instance_type is 2 enter correct FQDN for solr master
 #    solr_master_host: t-w-solrmaster01.library.ucla.edu
 
   roles:
