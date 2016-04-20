@@ -23,10 +23,10 @@
     frontend_defaultbe: 'slave_solr'
     backends:
       - ident: master_solr
-        http_check: 'HEAD /solr/www/admin/ping HTTP/1.0\r\n'
+        http_check: 'HEAD /solr/www-test/admin/ping HTTP/1.0\r\n'
         hosts: [ t-w-solrmaster01 ]
       - ident: slave_solr
-        http_check: 'HEAD /solr/www/admin/ping HTTP/1.0\r\n'
+        http_check: 'HEAD /solr/www-test/admin/ping HTTP/1.0\r\n'
         hosts: [ t-w-solrslave01, t-w-solrslave02 ]
 
   roles:
