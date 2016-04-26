@@ -7,6 +7,7 @@ Deploys Apache Solr on RHEL servers
 * uclalib_role_java
 * uclalib_role_apache
 * uclalib_role_tomcat
+* uclalib_role_iptables
 
 This role is capable of deploying Solr in the following configurations:
 
@@ -94,6 +95,10 @@ Example:
   sudo: true
   hosts: test
   vars:
+    iptables_allowed_input_rules:
+      - src_ip: 164.67.0.0/16
+        dest_port: 80
+        protocol: tcp
     tomcat_applications:
       - app_name: solr
         shut_port: 8008
@@ -113,4 +118,5 @@ Example:
       - { role: uclalib_role_apache }
       - { role: uclalib_role_tomcat }
       - { role: uclalib_role_solr }
+      - { role: uclalib_role_iptables }
 ```
