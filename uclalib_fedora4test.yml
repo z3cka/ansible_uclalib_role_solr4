@@ -1,0 +1,20 @@
+---
+- name: uclalib_fedora4test.yml
+  sudo: true
+  hosts: fedora4
+  vars_files:
+    - vars/iptables_library.yml
+    - vars/iptables_campusvpn.yml
+  vars:
+    tomcat_applications:
+      - app_name: fedora
+        shut_port: 8006
+        conn_port: 8081
+        rproxy_path: fcrepo
+
+  roles:
+    - { role: uclalib_role_java }
+    - { role: uclalib_role_apache }
+    - { role: uclalib_role_tomcat }
+    - { role: uclalib_role_fedora4 }
+    - { role: uclalib_role_iptables }
