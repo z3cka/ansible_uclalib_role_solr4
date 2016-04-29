@@ -3,8 +3,7 @@
   sudo: true
   hosts: fedora4
   vars_files:
-    - vars/iptables_library.yml
-    - vars/iptables_campusvpn.yml
+    - vars/iptables_library_campusvpn.yml
   vars:
     tomcat_applications:
       - app_name: fedora
