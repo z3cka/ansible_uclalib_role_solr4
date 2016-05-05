@@ -1,5 +1,6 @@
 - name: ndlcinfo.yml
   become: yes
+  become_method: sudo
   hosts: development
   vars:
     iptables_allowed_input_rules:

@@ -1,6 +1,7 @@
 - name: common.yml
   hosts: all
-  sudo: true
+  become: yes
+  become_method: sudo
 
   roles:
     - { role: common,           tags: ["common"]}
