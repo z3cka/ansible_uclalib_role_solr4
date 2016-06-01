@@ -1,0 +1,7 @@
+- name: uclalib_travisdeploy.yml
+  become: yes
+  become_method: sudo
+  hosts: tomcat
+
+  roles:
+    - { role: uclalib_role_travisdeploy }
