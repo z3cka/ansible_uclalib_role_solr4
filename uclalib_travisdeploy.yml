@@ -2,6 +2,11 @@
   become: yes
   become_method: sudo
   hosts: tomcat
+  vars:
+    tomcat_inst_name: laptops
+    project_filename: laptops.war
+    project_source_path: laptop_availability/{{ project_filename }}
+    project_target_path: /usr/local/{{ tomcat_inst_name }}/webapps/{{ project_filename }}
 
   roles:
     - { role: uclalib_role_travisdeploy }
