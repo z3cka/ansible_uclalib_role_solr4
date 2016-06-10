@@ -1,0 +1,22 @@
+---
+- name: uclalib_fedoracamel.yml
+  become: yes
+  become_method: sudo
+  hosts: karaf4
+  vars_files:
+    - vars/fctools_vars.yml
+  vars:
+    karaf_fctools_install:
+      - feature: "fcrepo-indexing-solr"
+        config: "org.fcrepo.camel.indexing.solr.cfg"
+      - feature: "fcrepo-fixity"
+        config: "org.fcrepo.camel.fixity.cfg"
+      - feature: "fcrepo-serialization"
+        config: "org.fcrepo.camel.serialization.cfg"
+      - feature: "fcrepo-reindexing"
+        config: "org.fcrepo.camel.reindexing.cfg"
+
+  roles:
+    - { role: uclalib_role_java }
+    - { role: uclalib_role_karaf }
+    - { role: uclalib_role_fedoracamel }
