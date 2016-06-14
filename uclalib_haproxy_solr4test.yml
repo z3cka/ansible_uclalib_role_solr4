@@ -13,7 +13,7 @@
     frontend_ident: 'lb_solr'
     frontend_acls:
       - acl: 'query_network_allowed src 0.0.0.0/0'
-      - acl: 'update_network_allowed src 164.67.0.0/16'
+      - acl: 'update_network_allowed src -f /etc/haproxy/library_campusvpn_ips'
       - acl: 'allow_query_path path_dir /select /terms'
       - acl: 'restricted_path path_beg /solr'
       - acl: 'http_methods method POST DELETE PUT'
