@@ -6,6 +6,8 @@
   vars_files:
     - vars/fctools_vars.yml
   vars:
+    fedora_url: "t-u-fedora01.library.ucla.edu"
+    solr_url: "t-w-solrlb01.library.ucla.edu/solr/fedora4"
     karaf_fctools_install:
       - feature: "fcrepo-indexing-solr"
         config: "org.fcrepo.camel.indexing.solr.cfg"
