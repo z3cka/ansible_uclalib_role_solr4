@@ -4,8 +4,12 @@
   become_method: sudo
   hosts: fedora4
   vars_files:
-    - vars/iptables_library_campusvpn.yml
+    - vars/iptables_library_campusvpn_port80.yml
   vars:
+    iptables_alt_allowed_input_rules:
+      - src_ip: 164.67.153.252/32
+        dest_port: 61616
+        protocol: tcp
     tomcat_applications:
       - app_name: fedora
         shut_port: 8006
