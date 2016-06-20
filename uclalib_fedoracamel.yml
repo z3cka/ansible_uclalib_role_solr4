@@ -17,6 +17,7 @@
         config: "org.fcrepo.camel.serialization.cfg"
       - feature: "fcrepo-reindexing"
         config: "org.fcrepo.camel.reindexing.cfg"
+      - feature: "camel-saxon"
 
   roles:
     - { role: uclalib_role_java }
