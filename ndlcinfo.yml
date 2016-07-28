@@ -1,7 +1,7 @@
 - name: ndlcinfo.yml
   become: yes
   become_method: sudo
-  hosts: development
+  hosts: webservers
   vars:
     iptables_allowed_input_rules:
       - src_ip: 0.0.0.0/0
