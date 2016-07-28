@@ -4,6 +4,7 @@
   become_method: sudo
   vars_files:
     - /etc/ansible/group_vars/default_users.yml
+    - /svars/default_pws.yml
 #    - /etc/ansible/group_vars/dlp_users.yml
 #    - /svar/user_keys
     
