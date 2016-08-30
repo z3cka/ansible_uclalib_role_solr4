@@ -9,8 +9,8 @@
 ###########################################################
 
 # Defined playbook variables
-HOST='listall.ini'
-LIMIT="$1"
+HOST='$1'
+LIMIT="$2"
 
 # Set ansible-playbook strap
 source ansiblestrap.sh
