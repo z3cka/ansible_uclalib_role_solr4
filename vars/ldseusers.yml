@@ -1,0 +1,36 @@
+group:
+  wheel:
+    name: wheel
+    gid: 10
+
+user:
+  avuong:
+    uid: 1100
+    fullname: Anthony Vuong
+    username: avuong
+    homedir: /home/avuong
+    shell: /bin/bash
+    bashrc: thisbashlocation
+    group: wheel
+    groupof: wheel
+    id_rsa_pub: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVbbDd/IltY1IuuFsL99F3qZjxS8RriwRoOIOaihremav/BjJNk3eR4839Yp9Icd8+37My6vdrVyy48kUJ8ABnMT6HEGV4j+iesNicGoaohPKAYxCXdKRTXkVEEwBMcIXUVEMTQGuKSP63gh9eRdCkWZ92I25z8hRx4z76e6ApZ92U8Nd3LtjX/uXkEtzn04VyW8aABkIF+5L2Olb409cGwE+MwUSmXei8cLzmXDKagPSsjuE/5CWr+Z3fbbtUac2S4XHEJBrVoUZK0XN3S39PhNUgUswzbw1Rjt0fPbXI9pDhd2F8r3CarUeu2e10pAkcPkt7EMb6jAHlZfmfdVTJ avuong1@POW-M-DIT601.local
+      ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq4cpKd1yhfnQSX5RZIdVuimro23tmO/TivkU8syLy1zuZW/twzKRHD2k2sMXD5/KZ3WWIpoGq71HpNSAUcObg35awOHHZ7J9ilTzKsR3zT0RbrCw0SyBJ2gmQfeKARX57RtVL/Rm6ewlimmjYdNrcIFMLuJkVaDCf4UTe6SEGnWwC38OVwe4IEmw119QgeJi7MyyzBSu5Y3ZLOMQNnZZiIy/MIr6symWq37oCKKAICpsTPZ9PSNi697/ZgRWt9XjvozDsN2+nd+qD0/cg2mJHKbCQtz5DVou5UNZ0flXrxTrfRcR/PAo5LwiJRoYVmI/PlhKkNJinG/NrJzUZJ5+rQ== avuong@lit265v
+  charlie:
+    uid: 1101
+    fullname: Charlie Chen
+    username: charlie
+    homedir: /home/charlie
+    shell: /bin/bash
+    bashrc: thisbashlocation
+    group: wheel
+    groupof: wheel
+  sgurnick:
+    uid: 1102
+    fullname: Stephen Gurnick
+    username: sgurnick
+    homedir: /home/sgurnick
+    shell: /bin/bash
+    bashrc: thisbashlocation
+    group: wheel
+    groupof: wheel

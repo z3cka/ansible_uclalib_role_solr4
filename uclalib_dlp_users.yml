@@ -1,0 +1,10 @@
+- name: uclalib_dlp_users.yml
+  hosts: all
+  become: yes
+  become_method: sudo
+  vars_files:
+    - /etc/ansible/plays/vars/dlpusers.yml
+    - /svars/dlpusers_pw.yml
+    
+  roles:
+    - { role: uclalib_role_users }
