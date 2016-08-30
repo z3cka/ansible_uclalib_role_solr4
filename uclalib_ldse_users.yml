@@ -1,10 +1,11 @@
+---
 - name: uclalib_ldse_users.yml
   hosts: all
   become: yes
   become_method: sudo
   vars_files:
     - /etc/ansible/plays/vars/ldseusers.yml
-    - /svars/ldseusers_pw.yml
-    
+    - /etc/ansible/plays/vars/ldseusers_{{ ansible_env }}_pw.yml
+
   roles:
     - { role: uclalib_role_users }
