@@ -9,7 +9,7 @@
 ###########################################################
 
 # Defined playbook variables
-HOST='$1'
+HOST="$1"
 LIMIT="$2"
 
 # Set ansible-playbook strap
