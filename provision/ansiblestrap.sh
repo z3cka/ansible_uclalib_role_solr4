@@ -27,7 +27,7 @@ VAULTPASSWORD="/home/ansible/ansible_key"
 
 cd $ANSIBLEROOT
 
-PLAYBOOKCMD="ansible-playbook -i $ANSIBLEROOT/$INVENTORY -l $LIMIT --output=dump -e "ansible_env=$ANSIBLE_ENV""
+PLAYBOOKCMD="ansible-playbook -i $ANSIBLEROOT/$INVENTORY -l $LIMIT -e "ansible_env=$ANSIBLE_ENV""
 
 # Create LDSE accounts
 $PLAYBOOKCMD $ANSIBLEROOT/plays/uclalib_ldse_users.yml -v --vault-password-file $VAULTPASSWORD
