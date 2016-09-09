@@ -26,8 +26,13 @@
         dest_port: 443
         protocol: tcp
     smbsrc: //svm-netapp-dlib.in.library.ucla.edu/Masters/DLTempSecure/EMEL
-    mountpoint: /sinai/cifsemel
+    smbmountpoint: /sinai/cifsemel
     smbversion: 3.0
+    nfssrc: svm-netapp-dlib.in.library.ucla.edu:/ImageServer
+    nfsmountpoint: /sinai/j2
+    nfsvers: 3
+    nfsmountuser: jiiify
+    nfsmountgroup: jiiify
   vars_files:
       - /etc/ansible/plays/vars/iptables_library_campusvpn_port80.yml
       - /etc/ansible/plays/vars/iptables_library_campusvpn_port443.yml
@@ -35,5 +40,7 @@
 
   roles:
     - { role: uclalib_role_iiifimages }
+    - { role: uclalib_role_awscli }
     - { role: uclalib_role_iptables, when: ansible_env == "vmware" }
     - { role: uclalib_role_cifsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
+    - { role: uclalib_role_nfsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
