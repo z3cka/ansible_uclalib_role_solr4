@@ -28,8 +28,8 @@
     smbsrc: //svm-netapp-dlib.in.library.ucla.edu/Masters/DLTempSecure/EMEL
     smbmountpoint: /sinai/cifsemel
     smbversion: 3.0
-    nfssrc: svm-netapp-dlib.in.library.ucla.edu:/ImageServer
-    nfsmountpoint: /sinai/j2
+    nfssrc: svm-netapp-dlib.in.library.ucla.edu:/Sinai
+    nfsmountpoint: /sinai/jp2
     nfsvers: 3
     nfsmountuser: jiiify
     nfsmountgroup: jiiify
