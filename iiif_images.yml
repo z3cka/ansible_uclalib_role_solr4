@@ -3,28 +3,9 @@
   become: yes
   become_method: sudo
   vars:
-    iptables_allowed_input_rules:
-      - src_ip: 164.67.0.0/16
-        dest_port: 80
-        protocol: tcp
-      - src_ip: 164.67.0.0/16
-        dest_port: 443
-        protocol: tcp
-      - src_ip: 192.168.60.0/24
-        dest_port: 22
-        protocol: tcp
-      - src_ip: 192.168.60.0/24
-        dest_port: 80
-        protocol: tcp
-      - src_ip: 192.168.60.0/24
-        dest_port: 443
-        protocol: tcp
-      - src_ip: 71.81.250.53
-        dest_port: 80
-        protocol: tcp
-      - src_ip: 71.81.250.53
-        dest_port: 443
-        protocol: tcp
+    iptables_anywhere_input_rules:
+      - protocol: tcp
+        dest_port: 80,443
     smbsrc: //svm-netapp-dlib.in.library.ucla.edu/Masters/DLTempSecure/EMEL
     smbmountpoint: /sinai/cifsemel
     smbversion: 3.0
