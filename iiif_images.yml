@@ -15,13 +15,11 @@
     nfsmountuser: jiiify
     nfsmountgroup: jiiify
   vars_files:
-      - /etc/ansible/plays/vars/iptables_library_campusvpn_port80.yml
-      - /etc/ansible/plays/vars/iptables_library_campusvpn_port443.yml
       - /etc/ansible/plays/vars/emeluser_smb.yml
 
   roles:
     - { role: uclalib_role_iiifimages }
     - { role: uclalib_role_awscli }
-    - { role: uclalib_role_iptables, when: ansible_env == "vmware" }
+    - { role: uclalib_role_iptables, when: ansible_env == "vmware" or ansible_env == 'vagrant'}
     - { role: uclalib_role_cifsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
     - { role: uclalib_role_nfsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
