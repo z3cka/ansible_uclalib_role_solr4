@@ -1,7 +1,12 @@
 - name: sinai_scholars.yml
-  hosts: development
+  hosts: all
   become: yes
   become_method: sudo
+  vars:
+    iptables_anywhere_input_rules:
+      - protocol: tcp
+        dest_port: 22,80,443
 
   roles:
-    - { role: uclalib_role_sinaischolars, tags: ["uclalib_role_sinaischolars"] }
+    - { role: uclalib_role_sinaischolars }
+    - { role: uclalib_role_iptables }
