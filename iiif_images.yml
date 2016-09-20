@@ -19,6 +19,6 @@
 
   roles:
     - { role: uclalib_role_iiifimages }
-    - { role: uclalib_role_iptables, when: ansible_env == "vmware" or ansible_env == 'vagrant'}
+    - { role: uclalib_role_iptables }
     - { role: uclalib_role_cifsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
     - { role: uclalib_role_nfsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
