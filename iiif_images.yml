@@ -1,7 +1,24 @@
 - name: iiif_images.yml
-  hosts: development
+  hosts: all
   become: yes
   become_method: sudo
+  vars:
+    iptables_anywhere_input_rules:
+      - protocol: tcp
+        dest_port: 80,443
+    smbsrc: //svm-netapp-dlib.in.library.ucla.edu/Masters/DLTempSecure/EMEL
+    smbmountpoint: /sinai/cifsemel
+    smbversion: 3.0
+    nfssrc: svm-netapp-dlib.in.library.ucla.edu:/Sinai
+    nfsmountpoint: /sinai/jp2
+    nfsvers: 3
+    nfsmountuser: jiiify
+    nfsmountgroup: jiiify
+  vars_files:
+      - /etc/ansible/plays/vars/emeluser_smb.yml
 
   roles:
-    - { role: uclalib_role_iiifimages, tags: ["uclalib_role_iiifimages"] }
+    - { role: uclalib_role_iiifimages }
+    - { role: uclalib_role_iptables }
+    - { role: uclalib_role_cifsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
+    - { role: uclalib_role_nfsmount, when: ansible_env == "vmware" or ansible_env == 'vagrant' }
