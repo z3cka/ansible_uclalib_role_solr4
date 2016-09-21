@@ -3,12 +3,7 @@
 - name: uclalib_travisdeploy.yml
   become: yes
   become_method: sudo
-  hosts: tomcat
-  vars:
-    travis_project:
-      - tomcat_inst_name: laptops
-        project_source_path: laptop_availability/laptops.war
-        project_target_path: /usr/local/laptops/webapps/laptops.war
+  hosts: test
 
   roles:
     - { role: uclalib_role_travisdeploy }
