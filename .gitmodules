@@ -1,0 +1,12 @@
+[submodule "roles/ansible_uclalib_role_java"]
+	path = roles/ansible_uclalib_role_java
+	url = https://github.com/UCLALibrary/ansible_uclalib_role_java
+[submodule "roles/ansible_uclalib_role_apache"]
+	path = roles/ansible_uclalib_role_apache
+	url = https://github.com/UCLALibrary/ansible_uclalib_role_apache
+[submodule "roles/ansible_uclalib_role_tomcat"]
+	path = roles/ansible_uclalib_role_tomcat
+	url = https://github.com/UCLALibrary/ansible_uclalib_role_tomcat
+[submodule "roles/ansible_uclalib_role_iptables"]
+	path = roles/ansible_uclalib_role_iptables
+	url = https://github.com/UCLALibrary/ansible_uclalib_role_iptables
